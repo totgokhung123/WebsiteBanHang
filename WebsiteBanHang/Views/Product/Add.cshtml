@@ -1,0 +1,84 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebsiteBanHang.Models.Product
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<h1>Add Product</h1>
+
+<form asp-action="Add" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl">Image</label>
+        <input type="file" asp-for="ImageUrl" class="form-control" />
+    </div>
+
+    @* <div class="form-group">
+        <label>Additional Images</label>
+        <input type="file" asp-for="ImageUrls" multiple class="form-control" />
+    </div>  *@
+
+    <script>
+        function validateFileUpload() {
+            var fileInput = document.getElementById('ImageUrls');
+            var files = fileInput.files;
+            var errorMessage = "";
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var fileType = file.type;
+
+                if (!fileType.includes('image')) {
+                    errorMessage += "File " + file.name + " is not an image.\n";
+                }
+
+                if (file.size > (5 * 360 * 720)) { // 10 MB maximum size
+                    errorMessage += "File " + file.name + " exceeds the maximum allowed size.\n";
+                }
+            }
+
+            if (errorMessage !== "") {
+                alert(errorMessage);
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <form onsubmit="return validateFileUpload();" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Additional Images</label>
+            <input type="file" id="ImageUrls" name="ImageUrls" multiple class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+   @*  <button type="submit" class="btn btn-primary">Add</button> *@
+</form>

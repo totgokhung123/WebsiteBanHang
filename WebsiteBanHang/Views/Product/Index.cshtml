@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<WebsiteBanHang.Models.Product>
+
+<h2>Products</h2>
+
+@* <a class="mav-link text-dark" asp-controller="Product" asp-action="Add">Add</a>
+ *@<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>
+                <td>
+                    <img width="75px" height="75px" src="@product.ImageUrl" />
+                </td>
+                <td>
+                    <a asp-action="Display" asp-route-id="@product.Id">View</a>
+                    <a asp-action="Update" asp-route-id="@product.Id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <a asp-action="Add">
+        <button type="submit" class="btn btn-primary">Add</button>
+    </a>
+   
+</table>
+        

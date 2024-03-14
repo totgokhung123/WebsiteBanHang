@@ -1,0 +1,130 @@
+/*html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}*/
+
+/* Thi?t l?p font chung */
+body {
+    font-family: Arial, sans-serif;
+    background-color: powderblue;
+}
+
+/* Thi?t l?p kích th??c font theo responsive */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* T?o hi?u ?ng hover cho các button */
+.btn {
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Hi?n th? l?i */
+.text-danger {
+    color: #dc3545;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* ??nh d?ng cho ô t?i lên hình ?nh */
+.form-control-file {
+    display: block;
+    margin-top: 5px;
+}
+
+/* ??nh d?ng cho button t?i lên */
+.input-group .btn {
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #007bff;
+    color: #fff;
+}
+
+    .input-group .btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Ki?u ??nh d?ng cho table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* C?n ch?nh footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #ccc;
+}
